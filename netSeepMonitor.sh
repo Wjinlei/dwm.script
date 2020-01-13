@@ -1,30 +1,54 @@
 #!/bin/bash
-
+# 
 # Linux下实时网速监测脚本
-# 使用方法 netSeepMonitor.sh 你要监测的接口名
-# example： ./netSeepMonitor.sh wlp1s0
-
-ethn=$1
+# example： ./netSeepMonitor.sh
 
 while true
 do
-    # 获取接收速率
-    RX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
-    # 获取发送速率
-    TX_pre=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
-    # 等待一秒
+    # 计算上传下载的速率(上一秒)
+    # 获取所有网卡的接收速率
+    PRE_RX=$(cat /proc/net/dev | sed 's/:/ /g' | awk '{print $2}' | grep -v [^0-9])
+    PRE_RX_SUM=0
+    for i in ${PRE_RX}
+    do
+        # 计算所有网卡的接收速率的总和
+        PRE_RX_SUM=$(expr ${PRE_RX_SUM} + ${i})
+    done
+    # 获取所有网卡的发送速率
+    PRE_TX=$(cat /proc/net/dev | sed 's/:/ /g' | awk '{print $10}' | grep -v [^0-9])
+    PRE_TX_SUM=0
+    for i in ${PRE_TX}
+    do
+        # 计算所有网卡的发送速率的总和
+        PRE_TX_SUM=$(expr ${PRE_TX_SUM} + ${i})
+    done
+    
     sleep 1
-    # 获取接收速率
-    RX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $2}')
-    # 获取发送速率
-    TX_next=$(cat /proc/net/dev | grep $ethn | sed 's/:/ /g' | awk '{print $10}')
+
+    # 计算上传下载的速率(下一秒)
+    # 获取所有网卡的接收速率
+    NEXT_RX=$(cat /proc/net/dev | sed 's/:/ /g' | awk '{print $2}' | grep -v [^0-9])
+    NEXT_RX_SUM=0
+    for i in ${NEXT_RX}
+    do
+        # 计算所有网卡的接收速率的总和
+        NEXT_RX_SUM=$(expr ${NEXT_RX_SUM} + ${i})
+    done
+    # 获取所有网卡的发送速率
+    NEXT_TX=$(cat /proc/net/dev | sed 's/:/ /g' | awk '{print $10}' | grep -v [^0-9])
+    NEXT_TX_SUM=0
+    for i in ${NEXT_TX}
+    do
+        # 计算所有网卡的发送速率的总和
+        NEXT_TX_SUM=$(expr ${NEXT_TX_SUM} + ${i})
+    done
 
     # 清屏
     clear
 
     # 计算两次的差,这就是一秒内发送和接收的速率
-    RX=$((${RX_next}-${RX_pre}))
-    TX=$((${TX_next}-${TX_pre}))
+    RX=$((${NEXT_RX_SUM}-${PRE_RX_SUM}))
+    TX=$((${NEXT_TX_SUM}-${PRE_TX_SUM}))
 
     # 换算单位
     if [[ $RX -lt 1024 ]];then
@@ -50,5 +74,5 @@ do
         TX=$(echo $TX | awk '{print $1/1024 "KB/s"}')
     fi
 
-    echo -e "$ethn \t $RX $TX "
+    echo -e "$RX $TX "
 done
