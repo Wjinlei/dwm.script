@@ -2,7 +2,9 @@
 
 compton -b
 
-fcitx &
+#fcitx &
+
+ibus-daemon -x -d
 
 albert &
 
