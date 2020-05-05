@@ -1,6 +1,7 @@
 #!/bin/bash
 
-compton -b
+#compton -b
+picom -b
 
 #fcitx &
 
