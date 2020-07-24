@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#dwm status
+dwmblocks &
+
 #compton -b
 picom -b
 
@@ -9,4 +12,4 @@ ibus-daemon -x -d
 
 albert &
 
-~/my.scripts/setwallpaper.sh &
+~/my.scripts/setWallpaper.sh &
