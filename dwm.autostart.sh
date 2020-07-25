@@ -1,6 +1,8 @@
 #!/bin/bash
 
-dwm.getMpd.sh &
+mpd &
+
+dunst &
 
 #compton -b
 picom -b
