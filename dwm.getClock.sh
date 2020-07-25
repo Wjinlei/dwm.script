@@ -18,6 +18,6 @@ case "$clock" in
 	"12") clock_icon="🕛" ;;
 esac
 
-LOCALTIME=$(date +"📆:%Y-%m-%d(%a),${clock_icon}:%H:%M:%S")
+LOCALTIME=$(date +"${clock_icon}:%H:%M")
 printf "${LOCALTIME} "
 
