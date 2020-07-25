@@ -16,3 +16,5 @@ albert &
 dwmblocks &
 
 ~/my.scripts/setWallpaper.sh &
+
+~/my.scripts/chk.packages.sh &
