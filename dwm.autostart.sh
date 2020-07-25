@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dwm.getMpd.sh &
+
 #compton -b
 picom -b
 
@@ -9,7 +11,6 @@ ibus-daemon -x -d
 
 albert &
 
-#dwm status
 dwmblocks &
 
 ~/my.scripts/setWallpaper.sh &
