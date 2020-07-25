@@ -5,6 +5,13 @@
 
 location=${1:-/}
 
+case $BLOCK_BUTTON in
+	1) notify-send "💽 硬盘空间情况" "$(df -h --output=target,used,size)" ;;
+	3) notify-send "💽 硬盘模块" "\- 查看硬盘使用率和总量.
+- 左键点击查看所有硬盘空间情况." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
 [ -d "$location" ] || exit
 
 case "$location" in

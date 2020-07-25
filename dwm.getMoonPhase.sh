@@ -2,6 +2,19 @@
 
 # Shows the current moon phase.
 
+case $BLOCK_BUTTON in
+	3) notify-send "🌜 月象模块" "显示当前月象.
+- 🌑: New
+- 🌒: Waxing Crescent
+- 🌓: First Quarter
+- 🌔: Waxing Gibbous
+- 🌕: Full
+- 🌖: Waning Gibbous
+- 🌗: Last Quarter
+- 🌘: Waning Crescent" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
 moonfile="${XDG_DATA_HOME:-$HOME/.local/share}/moonphase"
 
 [ "$(stat -c %y "$moonfile" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||

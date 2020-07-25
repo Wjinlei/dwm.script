@@ -6,10 +6,10 @@
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e neomutt ;;
 	2) setsid -f mailsync >/dev/null ;;
-	3) notify-send "📬 Mail module" "\- Shows unread mail
+	3) notify-send "📬 邮件模块" "\- 查看未读邮件
 - 图标 🔃 表示邮件正在同步中...
-- 鼠标左键打开 neomutt
-- 鼠标中键立即同步邮件" ;;
+- 左键点击打开neomutt
+- 中键点击立即同步邮件" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
