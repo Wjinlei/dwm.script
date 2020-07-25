@@ -13,5 +13,5 @@ do
 	# If it is discharging and 25% or less, we will add a ❗ as a warning.
 	 [ "$capacity" -le 25 ] && [ "$status" = "🔋" ] && status="❗"
 
-	printf "%s:%s%%" "$status" "$capacity%"
+	printf "%s:%s%%" "$status" "$capacity"
 done | sed 's/ *$//'
