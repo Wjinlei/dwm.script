@@ -7,7 +7,7 @@ case $BLOCK_BUTTON in
 	2) pamixer -t ;;
 	4) pamixer --allow-boost -i 1 ;;
 	5) pamixer --allow-boost -d 1 ;;
-	3) notify-send "📢 音量模块" "\- 查看音量 🔊, 如果静音 🔇.
+	3) notify-send "📢 音量模块" "\- 音量调节:🔇,🔈,🔉,🔊
 - 左键点击打开pulsemixer
 - 中键点击静音.
 - 滑轮上下调整音量." ;;

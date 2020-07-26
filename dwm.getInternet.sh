@@ -29,7 +29,7 @@ case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 	up) wifiicon="$(awk '/^\s*w/ { print "📶" }' /proc/net/wireless)" ;;
 esac
 
-printf "Eth:%s,Wifi:%s,IP:%s\n" \
+printf "Eth:%s,Wifi:%s\n" \
     "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" \
-    "$wifiicon" \
-    "$(GetIp)"
+    "$wifiicon"
+    #"$(GetIp)"
