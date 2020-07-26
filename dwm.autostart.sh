@@ -1,8 +1,6 @@
 #!/bin/bash
 
-mpd &
-
-dunst &
+dwmblocks &
 
 #compton -b
 picom -b
@@ -13,8 +11,5 @@ ibus-daemon -x -d
 
 albert &
 
-dwmblocks &
-
 ~/my.scripts/setWallpaper.sh &
 
-~/my.scripts/chk.packages.sh &

@@ -28,5 +28,5 @@ case $BLOCK_BUTTON in
 esac
 
 LOCALTIME=$(date +"📆:%Y-%m-%d(%a),${clock_icon}:%H:%M")
-printf "${LOCALTIME} "
+printf "${LOCALTIME}"
 
