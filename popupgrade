@@ -3,7 +3,7 @@
 printf "开始更新.\\n"
 
 yay -Syu
-pkill -RTMIN+13 "${STATUSBAR:-dwmblocks}"
+pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
 printf "\\n更新完毕.\\n按 <Enter> 退出窗口.\\n\\n"
 read -r

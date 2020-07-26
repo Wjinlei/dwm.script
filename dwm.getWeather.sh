@@ -18,7 +18,7 @@ sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e less -Srf "$weatherreport" ;;
-	2) getforecast && showweather && pkill -RTMIN+12 dwmblocks ;;
+	2) getforecast && showweather && pkill -RTMIN+5 dwmblocks ;;
 	3) notify-send "🌈 天气预报模块" "\- 左键点击查看完整预测.
 - 中键点击更新天气预报.
 ☔: 百分之多少几率可能会下雨

@@ -4,7 +4,7 @@
 # Show 🌐 if connected to ethernet or ❎ if none.
 
 case $BLOCK_BUTTON in
-	1) "$TERMINAL" -e nmtui; pkill -RTMIN+9 dwmblocks ;;
+	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
 	3) notify-send "🌐 网络模块" "\- 左键点击连接网络
 📡: 没有Wifi连接
 📶: Wifi已连接

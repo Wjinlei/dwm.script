@@ -1,4 +1,4 @@
 #!/bin/sh
 
 mbsync -a
-pkill -RTMIN+3 dwmblocks
+pkill -RTMIN+12 dwmblocks
