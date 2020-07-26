@@ -2,6 +2,8 @@
 
 dwmblocks &
 
+chk.packages.sh &
+
 #compton -b
 picom -b
 
