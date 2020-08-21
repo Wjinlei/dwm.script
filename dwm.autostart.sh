@@ -2,6 +2,7 @@
 
 dwmblocks &
 
+mailsync &
 chk.packages.sh &
 
 #compton -b
