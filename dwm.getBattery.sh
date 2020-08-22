@@ -22,6 +22,7 @@ do
 	status=$(sed "s/[Dd]ischarging/🔋/;s/[Nn]ot charging/🛑/;s/[Cc]harging/🔌/;s/[Uu]nknown/❓/;s/[Ff]ull/😀/" "$battery"/status)
 
 	# If it is discharging and 25% or less, we will add a ❗ as a warning.
+	 [ "$capacity" -le  5 ] && [ "$status" = "🔋" ] && status="❗" && poweroff
 	 [ "$capacity" -le 25 ] && [ "$status" = "🔋" ] && status="❗" && cvlc --play-and-exit ./low.power.mp3
 
 	printf "%s:%s%%" "$status" "$capacity"
