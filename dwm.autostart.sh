@@ -8,9 +8,7 @@ chk.packages.sh &
 #compton -b
 picom -b
 
-#fcitx &
-
-ibus-daemon -x -d
+fcitx5 &
 
 albert &
 
