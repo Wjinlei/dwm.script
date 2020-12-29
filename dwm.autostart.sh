@@ -10,7 +10,5 @@ picom -b
 
 fcitx5 &
 
-albert &
-
 ~/my.scripts/setWallpaper.sh &
 
