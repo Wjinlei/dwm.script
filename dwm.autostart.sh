@@ -8,7 +8,7 @@ chk.packages.sh &
 #compton -b
 picom -b
 
-fcitx5 &
+fcitx &
 
 ~/my.scripts/setWallpaper.sh &
 
