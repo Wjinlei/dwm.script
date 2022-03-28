@@ -1,14 +1,10 @@
 #!/bin/bash
 
 dwmblocks &
-
-mailsync &
-chk.packages.sh &
-
-#compton -b
 picom -b
+#mailsync &
+#fcitx &
 
-fcitx &
-
-~/my.scripts/setWallpaper.sh &
+./setWallpaper.sh &
+./chk.packages.sh &
 
