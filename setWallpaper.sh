@@ -2,7 +2,7 @@
 
 shopt -s nullglob
  
-cd ~/my.scripts/background
+cd ./background
 
 while true; do
 	files=()
