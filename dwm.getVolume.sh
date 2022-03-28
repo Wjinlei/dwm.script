@@ -15,7 +15,10 @@ case $BLOCK_BUTTON in
 esac
 
 volume=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
-if [ "$volume" -eq "0" ]; then
+toggle=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)\].*/\1/')
+if [ "$toggle" == "off" ]; then
+    icon="🔇"
+elif [ "$volume" -eq "0" ]; then
     icon="🔇"
 elif [ "$volume" -gt "70" ]; then
 	icon="🔊"
@@ -25,9 +28,5 @@ else
 	icon="🔉"
 fi
 
-toggle=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)\].*/\1/')
-if [ "$toggle" == "off" ]; then
-    icon="🔇"
-fi
 
 echo "$icon:$volume%"
