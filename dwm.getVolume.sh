@@ -26,7 +26,7 @@ else
 fi
 
 toggle=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)\].*/\1/')
-if [ "$enabled" == "off" ]; then
+if [ "$toggle" == "off" ]; then
     icon="🔇"
 fi
 
