@@ -9,8 +9,8 @@ case $BLOCK_BUTTON in
 🔌: 充电中
 😀: 已充满
 ❗: 电量低于20%警告!" ;;
-	#4) xbacklight -inc 10 ;;
-	#5) xbacklight -dec 10 ;;
+    #4) xbacklight -inc 10 ;;
+    #5) xbacklight -dec 10 ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
