@@ -4,7 +4,7 @@
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e pulsemixer ;;
-	2) pamixer -t; pkill -RTMIN+101 dwmblocks ;;
+	2) pamixer -t; pkill -RTMIN+10 dwmblocks ;;
 	4) pamixer --allow-boost -i 1;;
 	5) pamixer --allow-boost -d 1;;
 	3) notify-send "📢 音量模块" "\- 音量调节:🔇,🔈,🔉,🔊
