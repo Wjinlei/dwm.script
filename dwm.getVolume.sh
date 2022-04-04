@@ -4,9 +4,9 @@
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e pulsemixer ;;
-	2) pamixer -t ;;
-	#4) pamixer --allow-boost -i 1 ;;
-	#5) pamixer --allow-boost -d 1 ;;
+	2) pamixer -t; pkill -RTMIN+10 dwmblocks ;;
+	4) pamixer --allow-boost -i 1;;
+	5) pamixer --allow-boost -d 1;;
 	3) notify-send "📢 音量模块" "\- 音量调节:🔇,🔈,🔉,🔊
 - 左键点击打开pulsemixer
 - 中键点击静音.
@@ -14,19 +14,23 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-volume=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
-toggle=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)\].*/\1/')
-if [ "$toggle" == "off" ]; then
-    icon="🔇"
-elif [ "$volume" -eq "0" ]; then
-    icon="🔇"
-elif [ "$volume" -gt "70" ]; then
-	icon="🔊"
-elif [ "$volume" -lt "30" ]; then
-	icon="🔈"
-else
-	icon="🔉"
-fi
+get_volume() {
+    VOL=$(pamixer --get-volume)
+    MUTED=$(pamixer --get-mute)
+    if [ "$MUTED" = true ]; then
+        printf "🔇:%s%%" "$VOL"
+        return
+    fi
 
+    if [ "$VOL" -eq 0 ]; then
+        printf "🔇:%s%%" "$VOL"
+    elif [ "$VOL" -gt 00 ] && [ "$VOL" -le 30 ]; then
+        printf "🔈:%s%%" "$VOL"
+    elif [ "$VOL" -gt 30 ] && [ "$VOL" -le 70 ]; then
+        printf "🔉:%s%%" "$VOL"
+    else
+        printf "🔊:%s%%" "$VOL"
+    fi
+}
 
-echo "$icon:$volume%"
+get_volume
