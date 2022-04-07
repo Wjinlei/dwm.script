@@ -2,7 +2,7 @@
 
 # Shows the current moon phase.
 
-case $BLOCK_BUTTON in
+case $BUTTON in
 	3) notify-send "🌜 月象模块" "显示当前月象.
 - 🌑: New
 - 🌒: Waxing Crescent

@@ -3,9 +3,9 @@
 # Displays number of unread mail and an loading icon if updating.
 # When clicked, brings up `neomutt`.
 
-case $BLOCK_BUTTON in
+case $BUTTON in
 	1) setsid -f "$TERMINAL" -e neomutt ;;
-	2) setsid -f mailsync >/dev/null ;;
+	2) setsid -f chkMailbox >/dev/null ;;
 	3) notify-send "📬 邮件模块" "\- 查看未读邮件
 - 图标 🔃 表示邮件正在同步中...
 - 左键点击打开neomutt

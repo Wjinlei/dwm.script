@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
+case $BUTTON in
 	3) notify-send "🌐 网络流量模块" "\- 查看实时网络流量
 - ⏬: 下行流量
 - ⏫: 上行流量" ;;

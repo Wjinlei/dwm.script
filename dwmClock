@@ -18,7 +18,7 @@ case "$clock" in
 	"12") clock_icon="🕛" ;;
 esac
 
-case $BLOCK_BUTTON in
+case $BUTTON in
 	1) notify-send "月份信息" "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)" ;;
 	2) setsid -f "$TERMINAL" -e calcurse ;;
 	3) notify-send "🗓 日期模块" "\- 查看月份信息

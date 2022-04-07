@@ -2,9 +2,9 @@
 
 filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d" | paste -sd ' ';}
 
-pidof -x dwm.getMpd.sh >/dev/null 2>&1 || dwm.getMpd.sh >/dev/null 2>&1 &
+pidof -x chkMpdStatus >/dev/null 2>&1 || chkMpdStatus >/dev/null 2>&1 &
 
-case $BLOCK_BUTTON in
+case $BUTTON in
 	1) mpc status | filter ; setsid -f "$TERMINAL" -e ncmpcpp ;;  # right click, pause/unpause
 	2) mpc toggle | filter ;;  # right click, pause/unpause
 	3) mpc status | filter ; notify-send "🎵 音乐模块" "\- 显示正在播放的音乐.
