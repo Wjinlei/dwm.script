@@ -6,4 +6,5 @@ picom -b
 
 ./wallpaper.sh &
 ./chkUpdate &
+./chkMailbox &
 
