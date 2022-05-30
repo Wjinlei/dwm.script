@@ -7,7 +7,7 @@
 # You could set up a shell alias to view the full file in a pager in the
 # terminal if desired. This function will only be run once a day when needed.
 weatherreport="${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
-getforecast() { curl -sf "wttr.in/Chengdu" > "$weatherreport" || exit 1 ;}
+getforecast() { curl -sf "wttr.in/CTU?m" > "$weatherreport" || exit 1 ;}
 
 # Some very particular and terse stream manipulation. We get the maximum
 # precipication chance and the daily high and low from the downloaded file and
