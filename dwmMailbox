@@ -17,6 +17,6 @@ unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/[Ii][Nn][Bb][Oo][Xx
 
 pidof mbsync >/dev/null 2>&1 && download="📬:📩"
 
-[ "$download" = "" ] && echo "📬:$unread(unRead)" || echo "$download"
+[ "$download" = "" ] && echo "📬:$unread(Mail)" || echo "$download"
 
 [ "$unread" != "0" ] && cvlc --play-and-exit ./email.recv.mp3
