@@ -1,6 +1,9 @@
 #!/bin/sh
 
-filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d" | paste -sd ' ';}
+filter() {
+        music_name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d" | paste -sd ' ';)
+        echo "🎵正在播放：$music_name"
+ }
 
 pidof -x chkMpdStatus >/dev/null 2>&1 || chkMpdStatus >/dev/null 2>&1 &
 
