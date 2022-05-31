@@ -1,0 +1,6 @@
+#!/bin/bash
+while :
+do
+    ./chkMailbox &
+    sleep 300
+done
