@@ -6,3 +6,10 @@ picom -b
 
 ./wallpaper.sh &
 ./chkUpdate &
+
+# Loop chkMailbox
+while :
+do
+    ./chkMailbox &
+    sleep 300
+done
