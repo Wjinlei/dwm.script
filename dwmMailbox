@@ -16,7 +16,7 @@ esac
 pidof mbsync >/dev/null 2>&1 && echo "📬:📩" ||
 {
         unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/[Ii][Nn][Bb][Oo][Xx]/new/* -type f 2>/dev/null | wc -l 2>/dev/null)"
-        [ "$unread" != "0" ] && cvlc --play-and-exit ./email.recv.mp3 && notify-send "📬 温馨提示：您有($unread)封未读邮件"
+        [ "$unread" != "0" ] && mpv --no-video --no-terminal ./email.recv.mp3 && notify-send "📬 温馨提示：您有($unread)封未读邮件"
         echo "📬:$unread(Mail)"
 }
 
