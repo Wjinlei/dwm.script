@@ -2,7 +2,7 @@
 
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
 
-ping -q -c 3 www.hws.com > /dev/null || exit
+ping -q -c 3 www.baidu.com > /dev/null || exit
 
 notify-send "📦 提示" "正在检查可更新软件包..."
 
