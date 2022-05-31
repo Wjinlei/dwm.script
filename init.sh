@@ -6,7 +6,6 @@ picom -b
 
 ./wallpaper.sh &
 ./chkUpdate &
-./chkVol &
 
 # Loop chkMailbox
 while :
