@@ -10,8 +10,7 @@ case $BUTTON in
 ❌: wifi禁用
 📡: 没有wifi连接
 📶: wifi已连接
-❎: 没有以太网
-🌐: 以太网工作
+❎: 没有以太网连接
 🔒: vpn 处于活动状态
 " ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
@@ -23,4 +22,4 @@ elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
 	grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="📡 " || wifiicon="❌ "
 fi
 
-printf "%s%s%s\n" "$wifiicon" "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+printf "%s%s%s\n" "$wifiicon" "$(sed "s/down/❎/;s/up/Eth/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
